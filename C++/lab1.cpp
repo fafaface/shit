@@ -9,22 +9,18 @@
 #include <set>
 using namespace std;
 
-const int maxn = 1000007;   //先打个1000000以内的素数表
-int is_prime[maxn];  //这个表示i这个数是不是质数， 1表示是质数，0表示不是
-int is_public[maxn]; //这个表示i是不是两个整数的公共质因数
+const int maxn = 1000007;
+int is_prime1[maxn];  
+int is_prime2[maxn]; 
 int ans;
 
-set<int> s;
-void db() {//da biao 打表
-    for (int i = 2; i <= 1000000; i++) {
-        is_prime[i] = 1;
-        is_public[i] = 1;
-    }
-    for (int i = 2; i <= 1000000; i++) {
-        if (is_prime[i] == 1)
-        {
-            for (int j = i + i; j <= 1000000; j += i) is_prime[j] = 0; // 从2*i开始，枚举这个素数的全部倍数，他的倍数肯定是合数，如果是合数，就置0；
-        }
+
+void init()//初始化两个数的质因数数组(包括重复数字)
+{
+    for (int i = 0; i < maxn; ++i)
+    {
+        is_prime1[i] = 0;
+        is_prime2[i] = 0;
     }
 }
 
@@ -36,6 +32,7 @@ int fun1(int m, int n)//算法1
             return t;
     }
 }
+
 int fun2(int m, int n)//算法2
 {
     int r = m % n;
@@ -47,13 +44,51 @@ int fun2(int m, int n)//算法2
     return n;
 }
 
-int fun3(int m, int n) {//分解质因数
-    int ans = 1;
-    int i = 0;
-    while (1)
+int fun3_b(int x,int* array)
+{
+   // cout << x << endl;
+    int cnt = 0;
+    while (x > 1)
     {
-        shitshit
+        for (int i = 2; i <= x; ++i)
+        {
+            if (x % i == 0)
+            {
+                x /= i;
+                cout << i << " ";
+                array[cnt++] = i;
+                break;
+            }
+        }
     }
+   // cout << endl;
+    return cnt;
+}
+int fun3_a(int m, int n) {//算法3 分解质因数
+    int ans = 1;
+    int QAQ = fun3_b(m, is_prime1);
+    int QWQ = fun3_b(n, is_prime2);
+    int a = 0, b = 0;
+    while (a < QAQ && b < QWQ)
+    {
+        if (is_prime1[a] == is_prime2[b])
+        {
+           // cout << is_prime1[a] << " ";
+            ans *= is_prime1[a];
+            a++;
+            b++;
+        }
+        else if (is_prime1[a] > is_prime2[b])
+        {
+            b++;
+        }
+        else
+        {
+            a++;
+        }
+    }
+
+   // cout << endl;
     return ans;
 }
 
@@ -62,7 +97,7 @@ int fun3(int m, int n) {//分解质因数
 int main()
 {
     int m, n;
-    db();//打素数表
+    init();
     cout << "input two integers: ";
     cin >> m >> n;
     double a1, a2;
@@ -77,7 +112,7 @@ int main()
     b1 = time(NULL);
     QueryPerformanceCounter(&c1);
     //开始计算
-    int ans = fun3(m, n);
+    int ans = fun3_a(m, n);
     //结束计时
     a2 = clock();
     b2 = time(NULL);
