@@ -52,7 +52,7 @@ int fun3(int m, int n) {//分解质因数
     int i = 0;
     while (1)
     {
-        shishi;
+        shitshit
     }
     return ans;
 }
