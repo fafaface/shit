@@ -97,6 +97,7 @@ int fun3_a(int m, int n) {//算法3 分解质因数
 int main()
 {
     int m, n;
+
     init();
     cout << "input two integers: ";
     cin >> m >> n;
@@ -112,7 +113,7 @@ int main()
     b1 = time(NULL);
     QueryPerformanceCounter(&c1);
     //开始计算
-    int ans = fun3_a(m, n);//需要用到哪个算法,就改成fun_n函数
+    int ans = fun1(m, n);//需要用到哪个算法,就改成fun_n函数
     //结束计时
     a2 = clock();
     b2 = time(NULL);
@@ -122,5 +123,5 @@ int main()
     cout << "计数器计时：" << (a2 * 1000 - a1 * 1000) / 1000.0 << endl;
     cout << "计时器计时：" << difftime(b2, b1) * 1.0 << endl;
     cout << "高精度计数器用时：" << (double)((c2.QuadPart - c1.QuadPart) * 1.0 / quadpart * 1.0) * 1000000 << endl;
-
+    return 0;
 }
