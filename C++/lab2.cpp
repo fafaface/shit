@@ -6,6 +6,7 @@
 #include<vector>
 #include <dos.h> 
 #include <windows.h>
+#include<fstream>
 using namespace std;
 int BF(char s[], char t[]) {
 	int index = 0;//初始化变量
@@ -54,8 +55,15 @@ int KMP(char s[], char t[]) {
 
 int main()
 {
+	ifstream myfile("C:/Users/yuehan lian/Desktop/123.txt");
 	char input[1001];
 	char search[1001];
+	int i = 0;
+	while (!myfile.eof()) //直到文件结尾
+	{
+		myfile >> input[i++];
+	}
+	myfile.close();
 	cout << "输入主串input ";
 	cin >> input;
 	search[0] = 'c'; search[1] = 'a'; search[2] = 'd'; search[3] = 'a'; search[4] = 'b'; search[5] = '\0';
