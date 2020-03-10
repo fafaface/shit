@@ -6,3 +6,5 @@
 /test/.vs/test/v16
 /test/Debug
 /C++/Debug/cs.tlog
+/C++/x64/Debug
+/.vs

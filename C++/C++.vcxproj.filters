@@ -18,8 +18,5 @@
     <ClCompile Include="lab2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="home.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
