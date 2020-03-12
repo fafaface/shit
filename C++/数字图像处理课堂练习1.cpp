@@ -23,7 +23,6 @@ void algorithm1(int n) {
 		g = q.front(); q.pop();
 		b = q.front(); q.pop();
 		a[x][y++] = (r + g + b) / 3.0;
-	//	cout << x << " " << y << a[x][y-1] << endl;
 		if (y == 5) {
 			x++; y = 0;
 		}
