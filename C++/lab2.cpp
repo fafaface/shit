@@ -38,25 +38,61 @@ void GetNext(char T[], int next[])
 		else k = next[k];        	//取T[0]…T[j]的下一个相等子串的长度
 	}
 }
-int nex[1001];
+int nex[99999999];
 int KMP(char s[], char t[]) {
 	int i = 0, j = 0;
 	while ((s[i] != '\0') && (t[j] != '\0'))
 	{
 		if (s[i] == t[j]) { i++; j++; }
-		else j = nex[j];
+		else j = nex[j];//j回退
 		if (j == -1) {
 			i++; j++;
 		}
 	}
-	if (t[j] == '\0') return i-strlen(t)+1;
-	else return 0;
+	if (t[j] == '\0') return i - strlen(t) + 1;//匹配成功，返回子串的位置
+	else return 0;//没找到
 }
+
+int Dist(char t[], char c)//滑动距离函数
+{
+	int len = strlen(t);
+	int i = len - 1;
+	if (c == t[i])
+		return len;
+	i--;
+	while (i >= 0){
+		if (c == t[i])
+			return len - 1 - i;
+		else
+			i--;
+	}
+	return len;
+}
+
+int BM(char S[], char T[])
+{
+	int n = strlen(S);	int m = strlen(T);
+	int i = m - 1;int j = m - 1;
+	while (j >= 0 && i < n){//主串从i到左
+		if (S[i] == T[j]){//匹配
+			i--;j--;
+		}
+		else{//不匹配
+			i += Dist(T, S[i]);//发现不匹配,开始新一轮匹配
+			j = m - 1;
+		}
+	}
+	if (j < 0)
+		return i + 1;
+	return -1;
+}
+
+
 
 int main()
 {
 	ifstream myfile("C:/Users/yuehan lian/Desktop/123.txt");
-	char input[1001];
+	char input[999999];
 	char search[1001];
 	int i = 0;
 	while (!myfile.eof()) //直到文件结尾
@@ -64,11 +100,11 @@ int main()
 		myfile >> input[i++];
 	}
 	myfile.close();
-	cout << "输入主串input ";
-	cin >> input;
-	search[0] = 'c'; search[1] = 'a'; search[2] = 'd'; search[3] = 'a'; search[4] = 'b'; search[5] = '\0';
-	//cout << "输入模式search: ";
-	//cin >> search;
+	//cout << "输入主串input ";
+	//cin >> input;
+	//search[0] = 'c'; search[1] = 'a'; search[2] = 'd'; search[3] = 'a'; search[4] = 'b'; search[5] = '\0';
+	cout << "输入模式search: ";
+	cin >> search;
 	memset(nex, 0, sizeof(nex));
 	GetNext(search, nex);
 	LARGE_INTEGER c1;//开始计时
@@ -77,10 +113,9 @@ int main()
 	QueryPerformanceFrequency(&frequency);
 	double quadpart = (double)frequency.QuadPart;
 	QueryPerformanceCounter(&c1);
-	int ans = KMP(input, search);//此处可替换为KMP,BM函数
+	int ans =BF(input, search);//此处可替换为KMP,BM函数
 	QueryPerformanceCounter(&c2);
 	cout << "位置: " << ans << endl;
-	cout << "高精度计数器用时：" << (double)((c2.QuadPart - c1.QuadPart) * 1.0 / quadpart * 1.0) * 1000000000000 << endl;
+	cout << "高精度计数器用时：" << (double)((c2.QuadPart - c1.QuadPart) * 1.0 / quadpart * 1.0) * 1000000 << endl;
 	return 0;
 }
-
