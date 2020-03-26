@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="lab2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="home.cpp">
+    <ClCompile Include="算法设计实验3.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
