@@ -35,6 +35,6 @@ int main()
 	v1 = fizzBuzz(n);
 	for (size_t i = 0; i < v1.size(); ++i)
 		cout << v1[i] << endl;
-	//cout << endl;
+	cout << endl;
 	return 0;
 }
