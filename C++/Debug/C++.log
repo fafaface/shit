@@ -1,4 +1,5 @@
-﻿C:\change\vs\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (C++.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  LeetCode.cpp
-C:\Users\yuehan lian\source\repos\shit\C++\LeetCode.cpp(33,8): warning C4101: “x”: 未引用的局部变量
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(467,5): warning MSB8028: 中间目录(Debug\)包含从另一个项目(C++.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+  算法设计实验3.cpp
+C:\Users\yuehan lian\source\repos\shit\C++\算法设计实验3.cpp(37,9): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\yuehan lian\source\repos\shit\C++\算法设计实验3.cpp(40,4): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C++.vcxproj -> C:\Users\yuehan lian\source\repos\shit\C++\Debug\cs.exe
