@@ -3,38 +3,39 @@
 #include <stdio.h> 
 #include <set>
 #include<vector>
-#include<string>
+#include<map>
+#include<cmath>
 using namespace std;
 
-vector<string> fizzBuzz(int n) {
-	string b1, b2, b3;
-	b1="Fizz"; b2="Buzz"; b3="FizzBuzz";
-	vector<string> ans;
-	for (int i = 1; i <= n; ++i)
-	{
-		if (i % 3 != 0 && i % 5 != 0)
-			ans.push_back(to_string(i));
-		else if (i % 3 == 0 && i % 5 != 0) {
-			ans.push_back(b1);
-		}
-		else if (i % 3 != 0 && i % 5 == 0) {
-			ans.push_back(b2);
-		}
-		else {
-			ans.push_back(b3);
-		}
-	}
-	return ans;
+bool isPowerOfThree(int n) {
+	return (n > 0 && (log10(n) / log10(3))-(int)( log10(n) / log10(3)) == 0);
 }
 
 int main()
 {
-	vector<string> v1,v2;
-	int n,x;
-	cin >> n;
-	v1 = fizzBuzz(n);
-	for (size_t i = 0; i < v1.size(); ++i)
-		cout << v1[i] << endl;
-	cout << endl;
+	vector<vector<char>> v1;
+	vector<char> v2;
+	int n;
+	//char x;
+	printf(" ‰»Î ˝◊÷: \n");
+	scanf("%d", &n);
+	//for (size_t j = 0; j < 9; ++j) {
+	//	v2.clear();
+	//	for (size_t i = 0; i < 9; ++i)
+	//	{
+	//		while (1) {
+	//			scanf("%c", &x);
+	//			if ((x >= '1' && x <= '9') || x == '.')
+	//				break;
+	//		}
+	//		v2.push_back(x);
+	//	}
+	//	v1.push_back(v2);
+	//}
+
+	
+	bool ans = isPowerOfThree(n);
+		cout <<ans << endl;
+	//cout << endl;
 	return 0;
 }
