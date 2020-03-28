@@ -50,7 +50,7 @@ point_pair min_pair(point_pair m, point_pair n) {//比较两个最近对哪个更近
 }
 
 
-point_pair bruteforce(point p[],int n)//蛮力法
+point_pair bruteforce(point p[],int n)//蛮力法2
 {
 	double mindist = 9999999;//初始化为最大值
 	point_pair ans;
