@@ -7,35 +7,42 @@
 #include<cmath>
 using namespace std;
 
-bool isPowerOfThree(int n) {
-	return (n > 0 && (log10(n) / log10(3))-(int)( log10(n) / log10(3)) == 0);
-}
+ struct ListNode {
+      int val;
+      ListNode *next;
+      ListNode(int x) : val(x), next(NULL) {}
+  };
 
+ void deleteNode(ListNode* node) {
+     node->val = node->next->val;
+     node->next = node->next->next;
+ }
 int main()
 {
 	vector<vector<char>> v1;
 	vector<char> v2;
-	int n;
-	//char x;
-	printf("输入数字: \n");
-	scanf("%d", &n);
-	//for (size_t j = 0; j < 9; ++j) {
-	//	v2.clear();
-	//	for (size_t i = 0; i < 9; ++i)
-	//	{
-	//		while (1) {
-	//			scanf("%c", &x);
-	//			if ((x >= '1' && x <= '9') || x == '.')
-	//				break;
-	//		}
-	//		v2.push_back(x);
-	//	}
-	//	v1.push_back(v2);
-	//}
+	int n;    printf("链表结点数: \n");
+    int x;
+    while (scanf("%d", &n) && n) {
+        ListNode* list=NULL;
+        ListNode* node
+        list->next = node;
+        node->next = NULL;
+        for (int i = 0; i < n; ++i)
+        {
+            scanf("%d", &x);
+            ListNode* pos;
+            pos->next = NULL;
+            pos->val = x;
+            node->next = pos;
+            node = pos;
+        }
 
-	
-	bool ans = isPowerOfThree(n);
-		cout <<ans << endl;
-	//cout << endl;
+        deleteNode(list);
+
+        printf("链表结点数: \n");
+    }
+
+
 	return 0;
 }

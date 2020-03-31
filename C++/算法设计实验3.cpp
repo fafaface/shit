@@ -40,10 +40,10 @@ void bf(point p[], int n)//蛮力法
 /*分治法*/
 
 bool cmpx(point a, point b) {//比较x轴坐标大小
-	return a.x > b.x;
+	return a.x < b.x;
 }
 bool cmpy(point a, point b) {//比较y轴坐标大小
-	return a.y > b.y;
+	return a.y < b.y;
 }
 point_pair min_pair(point_pair m, point_pair n) {//比较两个最近对哪个更近
 	return dist(m.a, m.b) > dist(n.a, n.b) ? n : m;
@@ -52,7 +52,7 @@ point_pair min_pair(point_pair m, point_pair n) {//比较两个最近对哪个更近
 
 point_pair bruteforce(point p[],int n)//蛮力法2
 {
-	double mindist = 9999999;//初始化为最大值
+	double mindist = 999999999;//初始化为最大值
 	point_pair ans;
 	ans.a = p[0]; ans.b = p[1];
 	for (int i = 0; i < n - 1; ++i)
@@ -121,11 +121,16 @@ int main(){
 		QueryPerformanceFrequency(&frequency);
 		double quadpart = (double)frequency.QuadPart;
 		QueryPerformanceCounter(&c1);
-	//	bf(n);//蛮力法,需要的时候修改成分治法
-		point_pair ans = divide_conquer(p,n);
-		cout << "最近对是:" << "(" << ans.a.x << "," << ans.a.y << ") " << "(" << ans.b.x << "," << ans.b.y << ")" << endl;
+		point_pair ans = bruteforce(p,n);//蛮力法,需要的时候修改成分治法
 		QueryPerformanceCounter(&c2);
-		cout << "高精度计数器用时：" << (double)((c2.QuadPart - c1.QuadPart) * 1.0 / quadpart * 1.0) * 1000000 << endl;
+		cout << "最近对是:" << "(" << ans.a.x << "," << ans.a.y << ") " << "(" << ans.b.x << "," << ans.b.y << ")" << endl;
+		cout << "蛮力法高精度计数器用时：" << (double)((c2.QuadPart - c1.QuadPart) * 1.0 / quadpart * 1.0) * 1000000 << endl;
+		QueryPerformanceCounter(&c1);
+		ans = divide_conquer(p,n);
+		QueryPerformanceCounter(&c2);
+		cout << "最近对是:" << "(" << ans.a.x << "," << ans.a.y << ") " << "(" << ans.b.x << "," << ans.b.y << ")" << endl;
+		cout << "分治法高精度计数器用时：" << (double)((c2.QuadPart - c1.QuadPart) * 1.0 / quadpart * 1.0) * 1000000 << endl;
+		cout << "输入点对的个数: ";
 	}
 	return 0;
 }
