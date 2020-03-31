@@ -20,7 +20,9 @@ double dist(point p, point q) {//计算距离
 	return sqrt(x * x + y * y);
 }
 
+
 void bf(point p[], int n)//蛮力法
+
 {
 	int minpair[2]; minpair[0] = 0; minpair[1] = 0;
 	double mindist=9999999;
@@ -49,6 +51,15 @@ point_pair min_pair(point_pair m, point_pair n) {//比较两个最近对哪个�
 	return dist(m.a, m.b) > dist(n.a, n.b) ? n : m;
 }
 
+bool cmpy(point a, point b) {//�Ƚ�y������С
+	return a.y < b.y;
+}
+point_pair min_pair(point_pair m, point_pair n) {//�Ƚ���������ĸ���
+	return dist(m.a, m.b) > dist(n.a, n.b) ? n : m;
+}
+
+
+
 
 point_pair bruteforce(point p[],int n)//蛮力法2
 {
@@ -57,14 +68,17 @@ point_pair bruteforce(point p[],int n)//蛮力法2
 	ans.a = p[0]; ans.b = p[1];
 	for (int i = 0; i < n - 1; ++i)
 		for (int j = i + 1; j < n; ++j)//一一比较
+
 		{
 			double distance = dist(p[i], p[j]);
 			if (distance < mindist) {
 				mindist = distance;
+
 				ans.a = p[i]; ans.b = p[j];//保存最近对
 			}
 		}
 	return ans;//返回最近对
+
 }
 
 point_pair closest_strip(point strip[], int size, point_pair d) {
@@ -83,13 +97,17 @@ point_pair closest_strip(point strip[], int size, point_pair d) {
 }
 point_pair closest_div(point p[],int n) {
 	if (n <= 3) {
+
 		return bruteforce(p,n);//剩下几个点,就直接蛮力法
+
 	}
 	int mid = n / 2;//找到中间分割点
 	point mid_point = p[mid];
+
 	point_pair disleft=closest_div(p,mid);//左半边
 	point_pair disright = closest_div(p+mid,n-mid);//右半边
 	point_pair d1 = min_pair(disleft, disright);//综合左右两边
+
 
 	point* strip = new point[n];
 	int j = 0;
@@ -99,19 +117,24 @@ point_pair closest_div(point p[],int n) {
 	}
 	return min_pair(d1, closest_strip(strip, j, d1));
 }
+
 point_pair divide_conquer(point p[],int n) {//分治法总函数
 	sort(p,p+n,cmpx);//按照x轴坐标排序
 	return closest_div(p,n);//分治法 将数组对半分递归
+
 }
 
 
 
 int main(){
+
+
 	int n;//个数
 	point p[10001];
 	cout << "输入点对的个数: ";
 	while (scanf("%d",&n)!=EOF&&n) {//如果为0 ,程序结束
 		cout << "输入" << n << "个点对的x、y坐标。" << endl;
+
 		for (int i = 0; i < n; ++i) {
 			scanf("%lf%lf", &p[i].x, &p[i].y);//接收来自键盘的n个点对坐标
 		}
@@ -121,6 +144,7 @@ int main(){
 		QueryPerformanceFrequency(&frequency);
 		double quadpart = (double)frequency.QuadPart;
 		QueryPerformanceCounter(&c1);
+
 		point_pair ans = bruteforce(p,n);//蛮力法,需要的时候修改成分治法
 		QueryPerformanceCounter(&c2);
 		cout << "最近对是:" << "(" << ans.a.x << "," << ans.a.y << ") " << "(" << ans.b.x << "," << ans.b.y << ")" << endl;
@@ -131,6 +155,7 @@ int main(){
 		cout << "最近对是:" << "(" << ans.a.x << "," << ans.a.y << ") " << "(" << ans.b.x << "," << ans.b.y << ")" << endl;
 		cout << "分治法高精度计数器用时：" << (double)((c2.QuadPart - c1.QuadPart) * 1.0 / quadpart * 1.0) * 1000000 << endl;
 		cout << "输入点对的个数: ";
+
 	}
 	return 0;
 }

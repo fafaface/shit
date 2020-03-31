@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="算法设计实验3.cpp">
+    <ClCompile Include="算法设计第7周作业.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

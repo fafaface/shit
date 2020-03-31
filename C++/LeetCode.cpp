@@ -3,38 +3,46 @@
 #include <stdio.h> 
 #include <set>
 #include<vector>
-#include<string>
+#include<map>
+#include<cmath>
 using namespace std;
 
-vector<string> fizzBuzz(int n) {
-	string b1, b2, b3;
-	b1="Fizz"; b2="Buzz"; b3="FizzBuzz";
-	vector<string> ans;
-	for (int i = 1; i <= n; ++i)
-	{
-		if (i % 3 != 0 && i % 5 != 0)
-			ans.push_back(to_string(i));
-		else if (i % 3 == 0 && i % 5 != 0) {
-			ans.push_back(b1);
-		}
-		else if (i % 3 != 0 && i % 5 == 0) {
-			ans.push_back(b2);
-		}
-		else {
-			ans.push_back(b3);
-		}
-	}
-	return ans;
-}
+ struct ListNode {
+      int val;
+      ListNode *next;
+      ListNode(int x) : val(x), next(NULL) {}
+  };
 
+ void deleteNode(ListNode* node) {
+     node->val = node->next->val;
+     node->next = node->next->next;
+ }
 int main()
 {
-	vector<string> v1,v2;
-	int n,x;
-	cin >> n;
-	v1 = fizzBuzz(n);
-	for (size_t i = 0; i < v1.size(); ++i)
-		cout << v1[i] << endl;
-	cout << endl;
+	vector<vector<char>> v1;
+	vector<char> v2;
+	int n;    printf("链表结点数: \n");
+    int x;
+    while (scanf("%d", &n) && n) {
+        ListNode* list=NULL;
+        ListNode* node
+        list->next = node;
+        node->next = NULL;
+        for (int i = 0; i < n; ++i)
+        {
+            scanf("%d", &x);
+            ListNode* pos;
+            pos->next = NULL;
+            pos->val = x;
+            node->next = pos;
+            node = pos;
+        }
+
+        deleteNode(list);
+
+        printf("链表结点数: \n");
+    }
+
+
 	return 0;
 }
