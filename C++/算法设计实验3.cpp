@@ -14,13 +14,15 @@ struct point_pair {
 	point b;
 }minest_pair;
 
-double dist(point p, point q) {//¼ÆËã¾àÀë
-	double x = fabs(p.x - q.x);//ºá×ø±êÖ®²î
-	double y = fabs(p.y - q.y);//×İ×ø±êÖ®²î
+double dist(point p, point q) {//è®¡ç®—è·ç¦»
+	double x = fabs(p.x - q.x);//æ¨ªåæ ‡ä¹‹å·®
+	double y = fabs(p.y - q.y);//çºµåæ ‡ä¹‹å·®
 	return sqrt(x * x + y * y);
 }
 
-void bf(point p[], int n)//ÂùÁ¦·¨
+
+void bf(point p[], int n)//è›®åŠ›æ³•
+
 {
 	int minpair[2]; minpair[0] = 0; minpair[1] = 0;
 	double mindist=9999999;
@@ -33,38 +35,50 @@ void bf(point p[], int n)//ÂùÁ¦·¨
 				minpair[0] = i; minpair[1] = j;
 			}
 		}
-	cout << "×îĞ¡¾àÀëÊÇ: " << mindist << endl;
-	cout << "×î½ü¶ÔÊÇ:" << "(" << p[minpair[0]].x << "," << p[minpair[0]].y << ") " << "(" << p[minpair[1]].x << "," << p[minpair[1]].y << ")" << endl;
+	cout << "æœ€å°è·ç¦»æ˜¯: " << mindist << endl;
+	cout << "æœ€è¿‘å¯¹æ˜¯:" << "(" << p[minpair[0]].x << "," << p[minpair[0]].y << ") " << "(" << p[minpair[1]].x << "," << p[minpair[1]].y << ")" << endl;
 }
 
-/*·ÖÖÎ·¨*/
+/*åˆ†æ²»æ³•*/
 
-bool cmpx(point a, point b) {//±È½ÏxÖá×ø±ê´óĞ¡
+bool cmpx(point a, point b) {//æ¯”è¾ƒxè½´åæ ‡å¤§å°
 	return a.x < b.x;
 }
-bool cmpy(point a, point b) {//±È½ÏyÖá×ø±ê´óĞ¡
+bool cmpy(point a, point b) {//æ¯”è¾ƒyè½´åæ ‡å¤§å°
 	return a.y < b.y;
 }
-point_pair min_pair(point_pair m, point_pair n) {//±È½ÏÁ½¸ö×î½ü¶ÔÄÄ¸ö¸ü½ü
+point_pair min_pair(point_pair m, point_pair n) {//æ¯”è¾ƒä¸¤ä¸ªæœ€è¿‘å¯¹å“ªä¸ªæ›´è¿‘
+	return dist(m.a, m.b) > dist(n.a, n.b) ? n : m;
+}
+
+bool cmpy(point a, point b) {//ï¿½È½ï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¡
+	return a.y < b.y;
+}
+point_pair min_pair(point_pair m, point_pair n) {//ï¿½È½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½
 	return dist(m.a, m.b) > dist(n.a, n.b) ? n : m;
 }
 
 
-point_pair bruteforce(point p[],int n)//ÂùÁ¦·¨2
+
+
+point_pair bruteforce(point p[],int n)//è›®åŠ›æ³•2
 {
-	double mindist = 999999999;//³õÊ¼»¯Îª×î´óÖµ
+	double mindist = 999999999;//åˆå§‹åŒ–ä¸ºæœ€å¤§å€¼
 	point_pair ans;
 	ans.a = p[0]; ans.b = p[1];
 	for (int i = 0; i < n - 1; ++i)
-		for (int j = i + 1; j < n; ++j)//Ò»Ò»±È½Ï
+		for (int j = i + 1; j < n; ++j)//ä¸€ä¸€æ¯”è¾ƒ
+
 		{
 			double distance = dist(p[i], p[j]);
 			if (distance < mindist) {
 				mindist = distance;
-				ans.a = p[i]; ans.b = p[j];//±£´æ×î½ü¶Ô
+
+				ans.a = p[i]; ans.b = p[j];//ä¿å­˜æœ€è¿‘å¯¹
 			}
 		}
-	return ans;//·µ»Ø×î½ü¶Ô
+	return ans;//è¿”å›æœ€è¿‘å¯¹
+
 }
 
 point_pair closest_strip(point strip[], int size, point_pair d) {
@@ -83,13 +97,17 @@ point_pair closest_strip(point strip[], int size, point_pair d) {
 }
 point_pair closest_div(point p[],int n) {
 	if (n <= 3) {
-		return bruteforce(p,n);//Ê£ÏÂ¼¸¸öµã,¾ÍÖ±½ÓÂùÁ¦·¨
+
+		return bruteforce(p,n);//å‰©ä¸‹å‡ ä¸ªç‚¹,å°±ç›´æ¥è›®åŠ›æ³•
+
 	}
-	int mid = n / 2;//ÕÒµ½ÖĞ¼ä·Ö¸îµã
+	int mid = n / 2;//æ‰¾åˆ°ä¸­é—´åˆ†å‰²ç‚¹
 	point mid_point = p[mid];
-	point_pair disleft=closest_div(p,mid);//×ó°ë±ß
-	point_pair disright = closest_div(p+mid,n-mid);//ÓÒ°ë±ß
-	point_pair d1 = min_pair(disleft, disright);//×ÛºÏ×óÓÒÁ½±ß
+
+	point_pair disleft=closest_div(p,mid);//å·¦åŠè¾¹
+	point_pair disright = closest_div(p+mid,n-mid);//å³åŠè¾¹
+	point_pair d1 = min_pair(disleft, disright);//ç»¼åˆå·¦å³ä¸¤è¾¹
+
 
 	point* strip = new point[n];
 	int j = 0;
@@ -99,38 +117,45 @@ point_pair closest_div(point p[],int n) {
 	}
 	return min_pair(d1, closest_strip(strip, j, d1));
 }
-point_pair divide_conquer(point p[],int n) {//·ÖÖÎ·¨×Üº¯Êı
-	sort(p,p+n,cmpx);//°´ÕÕxÖá×ø±êÅÅĞò
-	return closest_div(p,n);//·ÖÖÎ·¨ ½«Êı×é¶Ô°ë·Öµİ¹é
+
+point_pair divide_conquer(point p[],int n) {//åˆ†æ²»æ³•æ€»å‡½æ•°
+	sort(p,p+n,cmpx);//æŒ‰ç…§xè½´åæ ‡æ’åº
+	return closest_div(p,n);//åˆ†æ²»æ³• å°†æ•°ç»„å¯¹åŠåˆ†é€’å½’
+
 }
 
 
 
 int main(){
-	int n;//¸öÊı
+
+
+	int n;//ä¸ªæ•°
 	point p[10001];
-	cout << "ÊäÈëµã¶ÔµÄ¸öÊı: ";
-	while (scanf("%d",&n)!=EOF&&n) {//Èç¹ûÎª0 ,³ÌĞò½áÊø
-		cout << "ÊäÈë" << n << "¸öµã¶ÔµÄx¡¢y×ø±ê¡£" << endl;
+	cout << "è¾“å…¥ç‚¹å¯¹çš„ä¸ªæ•°: ";
+	while (scanf("%d",&n)!=EOF&&n) {//å¦‚æœä¸º0 ,ç¨‹åºç»“æŸ
+		cout << "è¾“å…¥" << n << "ä¸ªç‚¹å¯¹çš„xã€yåæ ‡ã€‚" << endl;
+
 		for (int i = 0; i < n; ++i) {
-			scanf("%lf%lf", &p[i].x, &p[i].y);//½ÓÊÕÀ´×Ô¼üÅÌµÄn¸öµã¶Ô×ø±ê
+			scanf("%lf%lf", &p[i].x, &p[i].y);//æ¥æ”¶æ¥è‡ªé”®ç›˜çš„nä¸ªç‚¹å¯¹åæ ‡
 		}
-		LARGE_INTEGER c1;//¿ªÊ¼¼ÆÊ±
-		LARGE_INTEGER c2;//½áÊø¼ÆÊ±
-		LARGE_INTEGER frequency;//¼ÆÊ±Æ÷ÆµÂÊ
+		LARGE_INTEGER c1;//å¼€å§‹è®¡æ—¶
+		LARGE_INTEGER c2;//ç»“æŸè®¡æ—¶
+		LARGE_INTEGER frequency;//è®¡æ—¶å™¨é¢‘ç‡
 		QueryPerformanceFrequency(&frequency);
 		double quadpart = (double)frequency.QuadPart;
 		QueryPerformanceCounter(&c1);
-		point_pair ans = bruteforce(p,n);//ÂùÁ¦·¨,ĞèÒªµÄÊ±ºòĞŞ¸Ä³É·ÖÖÎ·¨
+
+		point_pair ans = bruteforce(p,n);//è›®åŠ›æ³•,éœ€è¦çš„æ—¶å€™ä¿®æ”¹æˆåˆ†æ²»æ³•
 		QueryPerformanceCounter(&c2);
-		cout << "×î½ü¶ÔÊÇ:" << "(" << ans.a.x << "," << ans.a.y << ") " << "(" << ans.b.x << "," << ans.b.y << ")" << endl;
-		cout << "ÂùÁ¦·¨¸ß¾«¶È¼ÆÊıÆ÷ÓÃÊ±£º" << (double)((c2.QuadPart - c1.QuadPart) * 1.0 / quadpart * 1.0) * 1000000 << endl;
+		cout << "æœ€è¿‘å¯¹æ˜¯:" << "(" << ans.a.x << "," << ans.a.y << ") " << "(" << ans.b.x << "," << ans.b.y << ")" << endl;
+		cout << "è›®åŠ›æ³•é«˜ç²¾åº¦è®¡æ•°å™¨ç”¨æ—¶ï¼š" << (double)((c2.QuadPart - c1.QuadPart) * 1.0 / quadpart * 1.0) * 1000000 << endl;
 		QueryPerformanceCounter(&c1);
 		ans = divide_conquer(p,n);
 		QueryPerformanceCounter(&c2);
-		cout << "×î½ü¶ÔÊÇ:" << "(" << ans.a.x << "," << ans.a.y << ") " << "(" << ans.b.x << "," << ans.b.y << ")" << endl;
-		cout << "·ÖÖÎ·¨¸ß¾«¶È¼ÆÊıÆ÷ÓÃÊ±£º" << (double)((c2.QuadPart - c1.QuadPart) * 1.0 / quadpart * 1.0) * 1000000 << endl;
-		cout << "ÊäÈëµã¶ÔµÄ¸öÊı: ";
+		cout << "æœ€è¿‘å¯¹æ˜¯:" << "(" << ans.a.x << "," << ans.a.y << ") " << "(" << ans.b.x << "," << ans.b.y << ")" << endl;
+		cout << "åˆ†æ²»æ³•é«˜ç²¾åº¦è®¡æ•°å™¨ç”¨æ—¶ï¼š" << (double)((c2.QuadPart - c1.QuadPart) * 1.0 / quadpart * 1.0) * 1000000 << endl;
+		cout << "è¾“å…¥ç‚¹å¯¹çš„ä¸ªæ•°: ";
+
 	}
 	return 0;
 }
