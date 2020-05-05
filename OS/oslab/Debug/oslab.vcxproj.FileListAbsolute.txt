@@ -1,0 +1,2 @@
+C:\Users\yuehan lian\source\repos\shit\OS\oslab\Debug\oslab.exe
+C:\Users\yuehan lian\source\repos\shit\OS\oslab\Debug\oslab.pdb
