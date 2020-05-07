@@ -96,19 +96,19 @@ void FCFS(LinkQueue& wait, LinkQueue& ok) {
         int j = rand() % 3;
         if (j == 0) {
             DeQueue(ok, e);
-            cout << "进程" << e.name << "出队" << endl;
+            cout << "当前执行进程" << e.name << "出队" << endl;
         }
         else if (j == 1) {
             DeQueue(ok, e);
             EnQueue(ok, e);
-            cout << "进程" << e.name << "进队" << endl;
+            cout << "当前执行进程" << e.name << "进队" << endl;
         }
         else if (j == 2) {
             DeQueue(ok, e);
             EnQueue(wait, e);
             DeQueue(wait, f);
             EnQueue(ok, f);
-            cout << "进程" << e.name << "进队" << endl;
+            cout << "当前执行进程" << e.name << "进队" << endl;
         }
 
         Print(wait, ok);
@@ -130,8 +130,8 @@ int main() {
     for (i = 0; i < 10; i++) {
         PCB p;
         p.name = i + 1;
-        p.prior = rand() % 10;  //0-9
-        p.state = rand() % 2;   //
+        p.prior = rand() % 10;  //进程名为1-10
+        p.state = rand() % 2;   //状态
         p.time = rand() % 50+1;
         if (p.state)
             EnQueue(ok, p);
