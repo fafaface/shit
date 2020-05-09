@@ -49,7 +49,7 @@ int main() {
     double length, starts, times;
     int i;
     int temps;
-    input = fopen("C://Users/yuehan lian/Desktop/data.txt", "r");
+    input = fopen("C://Users/yuehan lian/Desktop/123.txt", "r");
     fscanf(input, "%d", &num);
     for (i = 0; i < num; i++) {
         fscanf(input, "%d %lf %lf", &temps,&(city[i].x), &(city[i].y));
