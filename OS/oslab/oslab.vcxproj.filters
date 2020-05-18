@@ -15,6 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="oslab3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="oslab2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
