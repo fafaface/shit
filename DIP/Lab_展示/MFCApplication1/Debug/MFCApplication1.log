@@ -1,0 +1,7 @@
+﻿  DlgMidFilter.cpp
+  MFCApplication1View.cpp
+C:\Users\yuehan lian\Desktop\实验\MFCApplication1\MFCApplication1View.cpp(492,71): warning C4309: “=”: 截断常量值
+C:\Users\yuehan lian\Desktop\实验\MFCApplication1\MFCApplication1View.cpp(471,7): warning C4101: “bMap”: 未引用的局部变量
+C:\Users\yuehan lian\Desktop\实验\MFCApplication1\MFCApplication1View.cpp(476,8): warning C4101: “lpSrc”: 未引用的局部变量
+  正在生成代码...
+  MFCApplication1.vcxproj -> C:\Users\yuehan lian\Desktop\实验\Debug\MFCApplication1.exe
