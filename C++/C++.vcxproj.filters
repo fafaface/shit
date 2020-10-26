@@ -15,7 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="算法设计实验6-Christofides’ Algorithm.cpp">
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="selab3.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
