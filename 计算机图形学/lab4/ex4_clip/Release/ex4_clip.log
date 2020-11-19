@@ -1,0 +1,24 @@
+﻿  clip.cpp
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(44,39): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(44,32): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(45,39): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(45,32): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(46,39): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(46,32): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(47,39): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(47,32): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(68,22): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(68,16): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(69,22): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(69,16): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(70,22): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(70,16): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(71,22): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(71,16): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Desktop\ex4\ex4_clip\clip.cpp(87,5): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  正在生成代码
+  0 of 13 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  ex4_clip.vcxproj -> C:\Users\yuehan lian\Desktop\ex4\ex4_clip\Release\ex4_clip.exe
