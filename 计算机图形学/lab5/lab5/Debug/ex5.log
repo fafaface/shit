@@ -1,0 +1,15 @@
+﻿  main.c
+C:\Users\yuehan lian\Documents\GitHub\CelestialExploratory\main.c(45,18): warning C4305: “函数”: 从“double”到“GLfloat”截断
+C:\Users\yuehan lian\Documents\GitHub\CelestialExploratory\main.c(45,22): warning C4305: “函数”: 从“double”到“GLfloat”截断
+C:\Users\yuehan lian\Documents\GitHub\CelestialExploratory\main.c(46,15): warning C4305: “函数”: 从“double”到“GLfloat”截断
+C:\Users\yuehan lian\Documents\GitHub\CelestialExploratory\main.c(53,35): warning C4244: “函数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Documents\GitHub\CelestialExploratory\main.c(53,57): warning C4244: “函数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Documents\GitHub\CelestialExploratory\main.c(54,35): warning C4244: “函数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Documents\GitHub\CelestialExploratory\main.c(54,57): warning C4244: “函数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Documents\GitHub\CelestialExploratory\main.c(61,35): warning C4244: “函数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Documents\GitHub\CelestialExploratory\main.c(61,57): warning C4244: “函数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Documents\GitHub\CelestialExploratory\main.c(62,35): warning C4244: “函数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Documents\GitHub\CelestialExploratory\main.c(62,58): warning C4244: “函数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\yuehan lian\Documents\GitHub\CelestialExploratory\main.c(103,25): warning C4113: “void (__cdecl *)()”和“void (__cdecl *)(void)”的参数列表不同
+C:\Users\yuehan lian\Documents\GitHub\CelestialExploratory\main.c(104,22): warning C4113: “void (__cdecl *)()”和“void (__cdecl *)(void)”的参数列表不同
+  ex5.vcxproj -> C:\Users\yuehan lian\Desktop\ex5\Debug\ex5.exe
